@@ -79,7 +79,7 @@ function App() {
         <div className="flex h-full w-full items-center flex-col md:flex-row gap-6 p-10">
           <Column
             id="todo"
-            title="To Do"
+            title={`To Do`}
             color="bg-red-50 border-red-400"
             tasks={columns.todo}
             openEdit={openEdit}

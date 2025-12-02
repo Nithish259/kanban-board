@@ -8,6 +8,13 @@ function Column({ id, title, color, tasks, openEdit, openDetails }) {
       className={`w-[32%] min-w-[300px] h-[450px] rounded-xl shadow-md border ${color} flex flex-col`}
     >
       <h3 className="p-4 bg-white border-b text-lg font-semibold text-gray-700 sticky top-0 rounded-t-xl">
+        {title === "In Progress" ? (
+          <i className="fa-solid fa-spinner text-yellow-300"></i>
+        ) : title === "Completed" ? (
+          <i className="fa-solid fa-circle-check text-green-400"></i>
+        ) : (
+          <i className="fa-solid fa-list-check text-red-500"></i>
+        )}{" "}
         {title}
       </h3>
 
