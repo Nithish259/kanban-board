@@ -5,6 +5,16 @@ import PriorityPill from "./PriorityPill";
 function TaskCard({ task, index, columnId, openEdit, openDetails }) {
   const { deleteTask } = useTasks();
 
+  const color = () => {
+    if (columnId === "todo") {
+      return "bg-red-200";
+    } else if (columnId === "completed") {
+      return "bg-green-100";
+    } else {
+      return "bg-amber-100";
+    }
+  };
+
   // Prevent click on button from triggering card click
   function stop(e) {
     e.stopPropagation();
@@ -24,10 +34,8 @@ function TaskCard({ task, index, columnId, openEdit, openDetails }) {
       {(provided, snapshot) => (
         <div
           onClick={() => openDetails(task, columnId)}
-          className={`p-4 bg-white rounded-xl shadow-md transition cursor-pointer
-            ${
-              snapshot.isDragging ? "shadow-2xl scale-[1.02] bg-blue-200" : ""
-            }`}
+          className={`p-4 ${color()} rounded-xl shadow-md transition cursor-pointer 
+            ${snapshot.isDragging ? "shadow-2xl scale-[1.02]" : ""}`}
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
@@ -36,7 +44,7 @@ function TaskCard({ task, index, columnId, openEdit, openDetails }) {
             <div>
               <h3 className="font-semibold text-gray-800">{task.title}</h3>
               {task.description && (
-                <p className="text-sm text-gray-500 mt-1 line-clamp-2">
+                <p className="text-sm text-gray-600 mt-1 line-clamp-2">
                   {task.description}
                 </p>
               )}

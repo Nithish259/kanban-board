@@ -48,7 +48,7 @@ function App() {
     <div className="min-h-screen bg-gray-100 flex flex-col">
       {/* Header */}
       <div className="w-full bg-white shadow p-4 flex items-center justify-between sticky top-0 z-50">
-        <h1 className="text-2xl font-semibold tracking-wide">Kanban Board</h1>
+        <h1 className="text-3xl font-semibold tracking-wide">Kanban Board</h1>
 
         <button
           onClick={() => setOpenModal(true)}
